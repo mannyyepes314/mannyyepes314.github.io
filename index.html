@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuel A. Yepes</title>
+  <meta name="description" content="Manuel A. Yepes — law, economics, and a personal library.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+
+    <!-- ===================== INTRO ===================== -->
+    <header class="intro">
+      <img class="portrait" src="images/headshot.jpeg" alt="Portrait of Manuel A. Yepes">
+      <div class="intro-text">
+        <h1>Manuel A.&nbsp;Yepes</h1>
+        <p>
+          I'm in my first year of law school at NYU Law. I spent the last two
+          years finishing an MPhil in Economics at Oxford, where I thought
+          about the categories we use and construct to describe Federal
+          Reserve asset purchase programs (quantitative easing versus market
+          functioning purchases). Before that, I studied Social Studies at
+          Harvard College, where I wrote a thesis asking why a socialist
+          party enacted free market reforms in 1980s Spain.
+        </p>
+      </div>
+    </header>
+
+    <!-- ===================== QUESTIONS ===================== -->
+    <section class="questions" aria-labelledby="questions-heading">
+      <h2 id="questions-heading" class="section-label">Questions I have</h2>
+      <ul class="question-list">
+        <li>
+          Can the U.S. (and do people think the U.S. will) pay back the
+          national debt? Are U.S. government bonds overvalued? What's the
+          difference between debt monetization and technical Treasury market
+          management?
+        </li>
+        <li>
+          Who's deciding AI's aesthetic? Where did the 20th century science
+          fiction conception of AI as the one great human achievement go, and
+          why do we think of it as just an economically useful tool?
+        </li>
+        <li>
+          What will happen to universities in the future? Are there
+          alternative social intellectual engines?
+        </li>
+        <li>
+          What, legally speaking, is the Federal Reserve? What does the
+          political theory of central banking look like?
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================== LIBRARY ===================== -->
+    <section class="library" aria-labelledby="library-heading">
+      <h2 id="library-heading" class="section-label">Library</h2>
+      <p class="library-note">
+        I love asking people what they're reading, and by extension love
+        looking at people's bookshelves. I've always thought that it'd be
+        cool if we all had digital personal libraries that updated
+        automatically whenever we read a book or interesting article. I've
+        included a version of that here, in case it helps anybody get more of
+        a sense of who I am and what I'm interested in. I've included the
+        cover for each book, because I enjoy a good book cover. In that
+        spirit, I've also tried to link the exact edition.
+      </p>
+
+      <div class="toggle" role="tablist" aria-label="Library view">
+        <button class="toggle-btn is-active" id="tab-books" role="tab"
+                aria-selected="true" aria-controls="panel-books">Books</button>
+        <span class="toggle-divider" aria-hidden="true">/</span>
+        <button class="toggle-btn" id="tab-articles" role="tab"
+                aria-selected="false" aria-controls="panel-articles">Articles</button>
+      </div>
+
+      <div id="panel-books" class="panel" role="tabpanel" aria-labelledby="tab-books"></div>
+      <div id="panel-articles" class="panel" role="tabpanel" aria-labelledby="tab-articles" hidden></div>
+    </section>
+
+    <footer>
+      <p>Manuel A. Yepes · New York</p>
+    </footer>
+
+  </main>
+
+  <script src="library.js"></script>
+  <script>
+    // ---------- Render books ----------
+    const booksPanel = document.getElementById("panel-books");
+    BOOKS.forEach(book => {
+      const row = document.createElement("article");
+      row.className = "book";
+
+      const coverWrap = document.createElement("div");
+      coverWrap.className = "cover-wrap";
+
+      const coverSrc = book.cover
+        ? book.cover
+        : `https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg?default=false`;
+
+      const img = document.createElement("img");
+      img.className = "cover";
+      img.loading = "lazy";
+      img.alt = `Cover of ${book.title}`;
+      img.src = coverSrc;
+      img.addEventListener("error", () => {
+        // Fall back to a typographic placeholder if no cover exists
+        const ph = document.createElement("div");
+        ph.className = "cover placeholder";
+        ph.innerHTML = `<span>${book.title}</span>`;
+        coverWrap.replaceChild(ph, img);
+      });
+      coverWrap.appendChild(img);
+
+      const text = document.createElement("div");
+      text.className = "book-text";
+      text.innerHTML = `
+        <h3 class="book-title"><a href="${book.link}" target="_blank" rel="noopener">${book.title}</a></h3>
+        <p class="book-author">${book.author}</p>
+        <p class="book-blurb">${book.blurb}</p>
+      `;
+
+      row.appendChild(coverWrap);
+      row.appendChild(text);
+      booksPanel.appendChild(row);
+    });
+
+    // ---------- Render articles ----------
+    const articlesPanel = document.getElementById("panel-articles");
+    ARTICLES.forEach(a => {
+      const row = document.createElement("article");
+      row.className = "article";
+      row.innerHTML = `
+        <h3 class="article-title"><a href="${a.link}" target="_blank" rel="noopener">${a.title}</a></h3>
+        <p class="article-meta">${a.author} · <em>${a.publication}</em></p>
+      `;
+      articlesPanel.appendChild(row);
+    });
+
+    // ---------- Toggle ----------
+    const tabs = [
+      { btn: document.getElementById("tab-books"), panel: booksPanel },
+      { btn: document.getElementById("tab-articles"), panel: articlesPanel }
+    ];
+    tabs.forEach(({ btn, panel }) => {
+      btn.addEventListener("click", () => {
+        tabs.forEach(t => {
+          const active = t.btn === btn;
+          t.btn.classList.toggle("is-active", active);
+          t.btn.setAttribute("aria-selected", active);
+          t.panel.hidden = !active;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
