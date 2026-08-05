@@ -19,6 +19,13 @@
 
 const BOOKS = [
   {
+    title: "Foucault's Pendulum",
+    author: "Umberto Eco",
+    isbn: "9780099287153",
+    link: "https://www.amazon.com/dp/0099287153",
+    blurb: "I bought this at Blackwell's in Oxford in July 2026. I'm always interested when people try to compare an author's first, very popular work with their second, also very popular but different work. Is it better? Can it ever be better, if it came second? Think Breaking Bad and Better Call Saul, for example."
+  },
+  {
     title: "The Death of Ivan Ilyich and Other Stories",
     author: "Leo Tolstoy",
     isbn: "0307388867",
