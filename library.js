@@ -1,30 +1,32 @@
 // ============================================================
-//  LIBRARY DATA — this is the only file you edit to add reads.
+//  LIBRARY DATA
 //
-//  ADD A BOOK: copy any block in the BOOKS list below, paste it
-//  in, and change the fields. Keep the commas between blocks.
+//  BOOKS live in this file — edit them by hand (see below).
 //
-//  COVERS: by default the cover is fetched automatically from
-//  Open Library using the isbn. If a book has no cover on the
-//  site, Open Library doesn't have that edition — add your own
-//  by putting the image file in the images folder and adding a
-//  cover line to that book, e.g.:
-//        cover: "images/zweig.jpg",
-//  A cover line always wins over the isbn lookup. Aim for an
-//  image about 400px wide; jpg or png both work.
-//
-//  ADD AN ARTICLE: same idea, using the ARTICLES list at the
-//  bottom. Articles have no covers, just title/author/where.
+//  ARTICLES come from your Google Sheet. Paste the published
+//  CSV link between the quotes on the next line. Until you do,
+//  the site falls back to the ARTICLES list at the bottom of
+//  this file. It also falls back automatically if the sheet is
+//  ever unreachable, so the page never breaks.
 // ============================================================
 
+const ARTICLES_CSV_URL = "";
+
+// ------------------------------------------------------------
+//  ADD A BOOK: copy any block below, paste it in, change the
+//  fields. Keep the comma after each closing brace except the
+//  last one. If a blurb contains a double quote, put a
+//  backslash before it (see the Zweig entry).
+//
+//  COVERS: fetched automatically from Open Library using the
+//  isbn. If a book shows a text placeholder instead, Open
+//  Library doesn't have that edition — upload your own image
+//  to the images folder and add a line to that book:
+//        cover: "images/zweig.jpg",
+//  A cover line always wins over the isbn lookup.
+// ------------------------------------------------------------
+
 const BOOKS = [
-  {
-    title: "Foucault's Pendulum",
-    author: "Umberto Eco",
-    isbn: "9780099287153",
-    link: "https://www.amazon.com/dp/0099287153",
-    blurb: "I bought this at Blackwell's in Oxford in July 2026. I'm always interested when people try to compare an author's first, very popular work with their second, also very popular but different work. Is it better? Can it ever be better, if it came second? Think Breaking Bad and Better Call Saul, for example."
-  },
   {
     title: "The Death of Ivan Ilyich and Other Stories",
     author: "Leo Tolstoy",
@@ -55,6 +57,12 @@ const BOOKS = [
     blurb: "I bought this at Libreria Lerner in La Candelaria, Bogotá. Zweig had come up three times in conversations throughout the week, which is my limit for the number of times someone or something can come up before I feel the need to do something about it. It's fascinating to hear him reminisce about a \"pre-war\" Europe knowing he had yet to see WWII break out."
   }
 ];
+
+// ------------------------------------------------------------
+//  FALLBACK ARTICLES — only shown if the Google Sheet isn't
+//  set up or can't be reached. Once the sheet is live you can
+//  leave this list alone.
+// ------------------------------------------------------------
 
 const ARTICLES = [
   {
