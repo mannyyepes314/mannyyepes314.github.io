@@ -67,8 +67,8 @@ a:hover { opacity: 0.7; }
 }
 
 .portrait {
-  width: 132px;
-  height: 165px;
+  width: 210px;
+  height: 262px;
   object-fit: cover;
   flex-shrink: 0;
   border: 1px solid var(--hairline);
@@ -87,11 +87,9 @@ h1 {
 
 .section-label {
   font-family: var(--sans);
-  font-size: 0.72rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
   margin-bottom: 1.4rem;
 }
 
@@ -104,26 +102,13 @@ section, footer {
 /* ---------- Questions ---------- */
 
 .question-list {
-  list-style: none;
+  list-style: disc;
+  padding-left: 1.3rem;
 }
 
-.question-list li {
-  font-style: italic;
-  font-size: 1.28rem;
-  line-height: 1.5;
-  padding-left: 1.4rem;
-  position: relative;
-}
+.question-list li::marker { color: var(--muted); }
 
-.question-list li::before {
-  content: "?";
-  font-style: normal;
-  position: absolute;
-  left: 0;
-  color: var(--garnet);
-}
-
-.question-list li + li { margin-top: 1.35rem; }
+.question-list li + li { margin-top: 1.05rem; }
 
 /* ---------- Library ---------- */
 
