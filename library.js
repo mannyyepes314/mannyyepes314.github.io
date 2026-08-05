@@ -10,7 +10,7 @@
 //  ever unreachable, so the page never breaks.
 // ============================================================
 
-const ARTICLES_CSV_URL = "";
+const ARTICLES_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWK0Itd0bkWbd44I_6-HNiLMX41ejREOuL7PhRK9_khITVl4pd3FFn4JSlQ2KuffjZjAR36jxAGJ6H/pub?gid=617232519&single=true&output=csv";
 
 // ------------------------------------------------------------
 //  ADD A BOOK: copy any block below, paste it in, change the
@@ -27,6 +27,13 @@ const ARTICLES_CSV_URL = "";
 // ------------------------------------------------------------
 
 const BOOKS = [
+  {
+    title: "Foucault's Pendulum",
+    author: "Umberto Eco",
+    isbn: "9780099287153",
+    link: "https://www.amazon.com/dp/0099287153",
+    blurb: "I bought this at Blackwell's in Oxford in July 2026. I'm always interested when people try to compare an author's first, very popular work with their second, also very popular but different work. Is it better? Can it ever be better, if it came second? Think Breaking Bad and Better Call Saul, for example."
+  },
   {
     title: "The Death of Ivan Ilyich and Other Stories",
     author: "Leo Tolstoy",
