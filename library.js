@@ -46,6 +46,7 @@ const BOOKS = [
     title: "I Regret Almost Everything",
     author: "Keith McNally",
     isbn: "1668017644",
+    cover: "images/mcnally.jpeg",
     link: "https://www.amazon.com/dp/1668017644",
     blurb: "I bought this book the summer of 2025 at a bookstore in Manhattan. I got distracted halfway through by LSAT studying at the time, but finally picked it back up again. I first found out about Keith McNally, as many others probably did, through his Instagram page, where he posts, among other things, his restaurant managers' dinner reports from the various restaurants he owns."
   },
@@ -60,7 +61,7 @@ const BOOKS = [
     title: "El Mundo de Ayer (The World of Yesterday)",
     author: "Stefan Zweig",
     isbn: "9788466378970",
-    // cover: "images/zweig.jpg",   // <- uncomment to use your own image
+    cover: "images/zweig.jpeg",
     link: "https://www.penguinlibros.com/es/literatura-contemporanea/390664-libro-el-mundo-de-ayer-9788466378970",
     blurb: "I bought this at Libreria Lerner in La Candelaria, Bogotá. Zweig had come up three times in conversations throughout the week, which is my limit for the number of times someone or something can come up before I feel the need to do something about it. It's fascinating to hear him reminisce about a \"pre-war\" Europe knowing he had yet to see WWII break out."
   }
