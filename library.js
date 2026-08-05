@@ -28,6 +28,13 @@ const ARTICLES_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWK0I
 
 const BOOKS = [
   {
+    title: "Getting to Maybe: How to Excel on Law School Exams",
+    author: "Richard Michael Fischl and Jeremy Paul",
+    isbn: "0890897603",
+    link: "https://www.amazon.com/dp/0890897603",
+    blurb: "A classic, I'm told."
+  },
+  {
     title: "Foucault's Pendulum",
     author: "Umberto Eco",
     isbn: "9780099287153",
