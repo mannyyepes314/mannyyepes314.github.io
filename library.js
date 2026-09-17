@@ -28,6 +28,13 @@ const ARTICLES_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWK0I
 
 const BOOKS = [
   {
+    title: "In the Bubble: Designing in a Complex World",
+    author: "John Thackara",
+    isbn: "9780262701150",
+    link: "https://mitpress.mit.edu/9780262701150/in-the-bubble/",
+    blurb: "I got this book used in the basement of the Strand in New York. I've recently discovered that design doesn't just mean aesthetics, but is a rich way to think about complex systems and problem solving. In general, the search for good philosophical/social analysis of technology has led me to MIT Press."
+  },
+  {
     title: "Getting to Maybe: How to Excel on Law School Exams",
     author: "Richard Michael Fischl and Jeremy Paul",
     isbn: "0890897603",
